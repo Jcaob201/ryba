@@ -27,7 +27,7 @@ bool sprawdzWygrana(const vector<char>& plansza, char znak){
 
 }
 
-bool sprawdzRemis(const vector<chra>& plansza){
+bool sprawdzRemis(const vector<char>& plansza){
 for (char pole : plansza){
         if (pole != 'X' && pole != 'O') return false;
 }
@@ -43,7 +43,7 @@ int wybor;
 cout << "Gra w Kolko i Krzyzyk dla dwoch graczy!" << endl;
 
 while (true) {
-        wyswietlPlansze(plansza);
+       int wyswietlPlansze(plansza);
         cout << "Gracz " << aktuqalnyGracz << ", wybierz numer pola (1-9): ";
         cin >> wybor;
 
@@ -55,7 +55,17 @@ while (true) {
 
         if(sprawdzRemis(plansza, aktualnyGracz)) {
                 wyswietlPlansze(plansza);
-        cout << "Gratulacje! Gracz " << aktualnyGracz << " wygrywa gre!" << endl;
+        cout << "Gratulacje! Gracz " << aktualnyGracz << " wygrywa!\n" << endl;
+        break;
+        }
+        if (sprawdzWygrana(plansza)){
+                wyswietlPlansze(plansza);
+        cout << "Remis!\n";
+        break;
+        }
+        aktualnyGracz = (aktualnyGracz == 'X') ? 'O' : 'X';
+}
+return 0;
 
 
 }
